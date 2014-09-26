@@ -9,7 +9,7 @@
     <p>Welcome to {{ title }}</p>
     <pre>
     {{#results}}
-        Name is : {{BusinessName}}
+        Name is : {{BusinessName}} [{{DateAdded}}]
     {{/results}}
 
     </pre>
