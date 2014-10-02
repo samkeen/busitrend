@@ -8,7 +8,9 @@ var db = require('../db/db').dbDriver;
 router.get('/', function(req, res) {
 
     var doc_results;
-    db.demo_test.find().sort({DateAdded: -1}, function(err, doc_results) {
+    var limit = parseInt(req.query.limit) || 100;
+    limit = limit < 500 ? limit : 500;
+    db.demo_test.find().sort({DateAdded: -1}).limit(limit, function(err, doc_results) {
         res.render('business_lics', {
             title: 'Business Lics',
             results: doc_results
